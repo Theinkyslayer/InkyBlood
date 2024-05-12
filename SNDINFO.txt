@@ -1,0 +1,40 @@
+gore/gorebig1 "sounds/gorebig1.ogg"
+gore/gorebig2 "sounds/gorebig2.ogg"
+gore/gorebig3 "sounds/gorebig3.ogg"
+gore/gorebig4 "sounds/gorebig4.ogg"
+gore/gorebig5 "sounds/gorebig5.ogg"
+gore/gorebig6 "sounds/gorebig6.ogg"
+gore/gorebig7 "sounds/gorebig7.ogg"
+
+gore/gorebounce1 "sounds/gorebounce1.ogg"
+gore/gorebounce2 "sounds/gorebounce2.ogg"
+gore/gorebounce3 "sounds/gorebounce3.ogg"
+gore/gorebounce4 "sounds/gorebounce4.ogg"
+gore/gorebounce5 "sounds/gorebounce5.ogg"
+gore/gorebounce6 "sounds/gorebounce6.ogg"
+gore/gorebounce7 "sounds/gorebounce7.ogg"
+
+$random misc/gibbed
+{
+gore/gorebig1
+gore/gorebig2
+gore/gorebig3
+gore/gorebig4
+gore/gorebig5
+gore/gorebig6
+gore/gorebig7
+}
+
+$limit misc/gibbed 7
+
+$random gore/gibbounce
+{
+gore/gorebounce1
+gore/gorebounce2
+gore/gorebounce3
+gore/gorebounce4
+gore/gorebounce5
+gore/gorebounce6
+gore/gorebounce7
+}
+$limit gore/gibbounce 7

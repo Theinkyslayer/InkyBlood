@@ -1,0 +1,77 @@
+
+class BloodParticle : Actor
+{
+    Default
+    {
+        +NOGRAVITY
+        +NOBLOCKMAP
+        +NOTELEPORT
+        RenderStyle "Translucent";
+        Decal "BloodSplat";
+        Scale 0.9;
+        Alpha 1;
+        Health 1;
+    }
+    int life;
+
+    static void RandomXFlip(Actor self)
+	{
+		self.bSpriteFlip = RandomPick(false, true);
+	}
+
+    override void BeginPlay(void)
+	{
+		Super.BeginPlay();
+
+	    BloodParticle.RandomXFlip(self);
+	}
+
+
+    States
+    {
+        Spawn:
+        TNT1 A 0 nodelay A_Jump(256,"BLOD1","BLOD2","BLOD3");
+        BLOD1:
+        BLOD A 3;
+        BLOD B 2;
+        BLOD C 2;
+        BLOD E 1;
+        Stop;
+        BLOD2:
+        BLO2 A 3;
+        BLO2 B 2;
+        BLO2 C 2;
+        BLO2 E 1;
+        Stop;
+        BLOD3:
+        BLO3 A 3;
+        BLO3 B 2;
+        BLO3 C 2;
+        BLO3 E 1;
+        Stop;
+    }
+}
+
+
+
+class NBlood : Actor replaces Blood
+{
+	Default
+	{
+	-ISMONSTER
+	+FORCEXYBILLBOARD
+	+CLIENTSIDEONLY
+	+NOBLOCKMAP
+	+NOTELEPORT
+	-ALLOWPARTICLES
+	RenderStyle "Translucent";
+	Mass 5;
+	}
+	States
+	{
+	Spawn:
+		TNT1 A 0;
+		TNT1 A 1 A_SpawnitemEx("bloodParticle", flags: sxf_transfertranslation | sxf_usebloodcolor);
+		Stop;
+	}
+}
